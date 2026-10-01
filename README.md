@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -223,7 +222,6 @@ body:before{
 <audio id="song" loop>
   <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_9463b7f3c6.mp3" type="audio/mpeg">
 </audio>
-
 <script>
 const intro=document.getElementById("intro");
 const envelope=document.getElementById("envelope");
@@ -236,31 +234,42 @@ function openLetter(){
   envelope.classList.add("opened");
   setTimeout(()=>paper.classList.add("show"),650);
 
-  song.volume=.25;
-  song.play().then(()=>{
-    musicBtn.textContent="♫";
-  }).catch(()=>{
-    musicBtn.textContent="🔇";
-  });
+<script>
+const song = document.getElementById("song");
+const musicBtn = document.getElementById("musicBtn");
+
+song.volume = 0.70;
+
+function startMusic() {
+  song.play()
+    .then(() => {
+      musicBtn.textContent = "♫";
+    })
+    .catch(() => {
+      musicBtn.textContent = "🔇";
+    });
 }
-function closeLetter(){
-  paper.classList.remove("show");
-  setTimeout(()=>{
-    envelope.classList.remove("opened");
-    intro.classList.remove("hide");
-  },500);
+
+function openLetter() {
+  document.getElementById("intro").classList.add("hide");
+  document.getElementById("envelope").classList.add("opened");
+
+  startMusic();
+
+  setTimeout(() => {
+    document.getElementById("paper").classList.add("show");
+  }, 650);
 }
-function toggleMusic(){
-  if(song.paused){
-    song.play().then(()=>musicBtn.textContent="♫").catch(()=>{});
-  }else{
-    song.pause();
-    musicBtn.textContent="🔇";
-  }
+
+function closeLetter() {
+  document.getElementById("paper").classList.remove("show");
+
+  setTimeout(() => {
+    document.getElementById("envelope").classList.remove("opened");
+    document.getElementById("intro").classList.remove("hide");
+  }, 500);
 }
-  📁 repository
-├── index.html
-└── you.mp3
+ <audio id="song" src="./you.mp3" loop preload="auto"></audio>
 </script>
 </body>
 </html>
