@@ -180,7 +180,7 @@ body:before{
     <div class="top-heart">♡</div>
     <div class="date">from my heart to yours</div>
 
-    <h2>Hey, you.</h2>
+    <h2> I love you, Kozume.</h2>
 
     <div class="message">
       <p>
