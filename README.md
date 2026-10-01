@@ -250,7 +250,6 @@ function closeLetter(){
     intro.classList.remove("hide");
   },500);
 }
-  <source src="you.mp3" type="audio/mpeg">
 function toggleMusic(){
   if(song.paused){
     song.play().then(()=>musicBtn.textContent="♫").catch(()=>{});
@@ -259,6 +258,9 @@ function toggleMusic(){
     musicBtn.textContent="🔇";
   }
 }
+  📁 repository
+├── index.html
+└── you.mp3
 </script>
 </body>
 </html>
